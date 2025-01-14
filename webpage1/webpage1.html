@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .names {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .names ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .names ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+    <script>
+        function handleDropdownChange() {
+            const dropdown = document.getElementById('taskSelector');
+            const names = document.getElementById('namesList');
+
+            if (dropdown.value === 'VaccineNotTaken') {
+                names.style.display = 'block';
+            } else {
+                names.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown">
+            <label for="taskSelector">Select an Option:</label>
+            <select id="taskSelector" onchange="handleDropdownChange()">
+                <option value="">-- Select --</option>
+                <option value="VaccineNotTaken">Vaccine Not Taken</option>
+                <option value="MedicineNotTaken">Medicine Not Taken</option>
+            </select>
+        </div>
+
+        <div class="names" id="namesList">
+            <h3>Names:</h3>
+            <ul>
+                <li>John Doe</li>
+                <li>Jane Smith</li>
+                <li>Michael Brown</li>
+                <li>Emily Davis</li>
+                <li>Chris Wilson</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
